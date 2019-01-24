@@ -1,0 +1,872 @@
+<!doctype html>
+<html class="no-js" lang="en"> 
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="sass/c.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+    <script src="js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+
+        
+  
+        <div id ="toolbar">
+                <div style="width:50%;float: left;">    
+                  <div class="datetime">
+            
+                    <script type="text/javascript">
+                      document.write ('<span id="date-time">', new Date().toLocaleString(), '<\/span>')
+                      if (document.getElementById) onload = function () {
+                        setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+                      }
+                    </script>
+                  </div>
+                </div>
+                
+                <div style="width:50%;float:right;">
+                  <div class="changefont">
+                   <div class="fontlist" style=" cursor: pointer; color:">
+                    <a class="font-button minus font-minus">A-</a> &nbsp;<a class="font-button normal font-normal">A</a>&nbsp; <a class="font-button plus font-plus">A+</a>
+                  </div>
+                </div>    
+                <script type="text/javascript">
+                  $(function () {
+                    $(".font-button").bind("click", function () {
+                      var size = parseInt($('body').css("font-size"));
+                      if ($(this).hasClass("plus")) {
+                        size = size + 1;
+                      } else if ($(this).hasClass("minus")){
+                        size = size - 1;
+                        if (size <= 10) {
+                          size = 10;
+                        }}
+                        else if ($(this).hasClass("normal")){
+                          size = 14;
+                        }
+            
+                        else {}
+                          $('body , a, nav, h1, p, li, h2,h3,h4,span').css("font-size", size);
+                      });
+                  });
+                </script>
+              </div>
+            </div>
+            
+<!--  -->
+<nav class="top-bar expanded" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#"><img src="./img/clix-header-icon.png" style="height:37px"><span class="show-for-small-up">Image</a></h1>
+          </li>
+           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+      
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class=""><a href="#"><i class="fa fa-info-circle"
+            ></i> Help</a></li>
+            <li class="has-dropdown">
+              <a href="#"><i class="fa fa-globe"></i> English</a>
+              <ul class="dropdown">
+                <li><a href="#"> lang fisrt</a></li>
+                <li class="active"><a href="#">lang first 0 </a></li>
+                 <li ><a href="#">lang lu  </a></li>
+              </ul>
+            </li>
+             <li class="active"><a href="#"> <i class="fa fa-key"></i> Login</a></li>
+          </ul>
+      
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li><a href="#"><i class="fa fa-binoculars" area-true="content" ></i>Explore</a></li>
+              <li><a href="#"> <i class="fas fa-dice-three"></i> Apps </a></li>
+          </ul>
+
+</section>
+</nav>
+
+
+
+
+<nav class="top-bar-second" data-topbar role="navigation" id="top-bar-second">
+	<div class="small-12 medium-12 columns explore-type">
+		<!--<div class="toggleButtons">-->
+		<div class="title-area">
+			<a href="/explore/courses" class="secondary-header-tabs   active">
+				Courses
+			</a>
+				
+				
+				<a href="/explore/workspaces" class="secondary-header-tabs ">
+					Workspaces
+				</a>
+				
+			
+			
+
+			
+
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+
+<script type="text/javascript">
+	$(document).on('click', '#save_module_order_list', function(e){
+		getSelValuesHiddenElement('module_list', 'sort-module-reveal')
+		module_list_ids = $("input[name=module_list]").val()
+		$.ajax({
+			type: "POST",
+
+			url: "/explore/reorder",
+			datatype: "html",
+			data:{
+				'csrfmiddlewaretoken': "HRNWW9TMttiLWmBlCoU0IrjzzcjZ9xKd",
+				'module_list': module_list_ids
+			},
+			success: function(data) {
+				data = JSON.parse(data)
+				if (!data['success']){
+					alert("Something went wrong. Please try again later.")
+				}
+				$('#sort-module-reveal').foundation('reveal', 'close');
+				location.reload()
+			}
+		});
+
+	})
+
+</script>
+
+
+<div class="lms_explore_back">
+    <div class="lms_explore_head">
+      <p class="left"> Modules </p>
+    </div>
+    <div class="small-12 columns exp-module-container">
+    <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-2">
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945daf42c4796014ce12d2d/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/c/5/6/f8c3a0688f5953cdd8b65a5da36b72d6fe6c771f3bbe4710c74d253721db7.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Understanding Motion ">
+                  Understanding Motion
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Science
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5a9ff06269602a01584dbddf/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/9/2/f/3d5726a81c23157bfadd639ca594162af7247ca703328f2e5cea8a4be5a5a.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Reflecting on Values ">
+                  Reflecting on Values
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Values
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/597ebd7b69602a0154bb417e/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/f/c/9/d278a8fcd43b9a91df02c301cc5c3dc236d218d3bc1f5a5d0ab99ecc53874.png" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Sound ">
+                  Sound
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Science
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/599c139269602a013fe31aa2/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/9/2/0/8c2156744968de70d88fa88bb1f0334bb75e1b06132e067507feba6a21b2d.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Atomic Structure ">
+                  Atomic Structure
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Science
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/59aff39869602a0155bfac16/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/static/ndf/images/module-card.png"/></img>
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Post-CLIx Survey ">
+                  Post-CLIx Survey
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Research
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/594cfbea69602a014089845b/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/8/3/3/16651de50f167a76911ac2a127cc5d80ac8b9eb447231432f062a705dae12.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Health and Disease ">
+                  Health and Disease
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Science
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/59abb47c69602a0156036296/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/static/ndf/images/module-card.png"/></img>
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Pre-CLIx Survey ">
+                  Pre-CLIx Survey
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Research
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/594b833869602a013f0cb6ce/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/3/b/7/3e479aea268e8051ae6cfaa736d3e8a7ae5ec4b3684f9d892c5bfffed8bf4.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Ecosystem ">
+                  Ecosystem
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Science
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 1
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945ddca2c4796014ddff735/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="/media/4/c/1/50c06aa9b61ddc1f4f83a74fe8f69ab6b4d913a84e20ee23b2f7ecc9b8723.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Proportional Reasoning ">
+                  Proportional Reasoning
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Mathematics
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 4
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5938ed2369602a014cb67195/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="./img-x/7240200b808aa2b3e57ee4a80567fa3781eee1f852f3f55274ce44e8980ef.png" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Linear Equations ">
+                  Linear Equations
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Mathematics
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 4
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945db2e2c4796014ddff67a/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="./img-x/4660af2d29cc09e2f8c6d6ab34e6d15c6ab5c4d1d92339cc24292c3c50035.png" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="English Elementary ">
+                  English Elementary
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: English
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 2
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945db6e2c4796014abd1784/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="./img-x/de17e9b4bd1b9785a02032d61ebf02423357ea62830240da9ee428adc4eb0.png" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="English Beginner ">
+                  English Beginner
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: English
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 2
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945de362c4796014ce12d7f/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="./img-x/0ddc842a39a2c166d5a1a50bf258aa84e3ed8be39586eb5b55bb1f65fc252.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Geometric Reasoning Part II ">
+                  Geometric Reasoning Part II
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Mathematics
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 2
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+          <div class="card_section">
+              
+              
+              
+          </div>
+      </div>
+  </div>
+  
+  
+        </li>
+        
+        <li class="card-image-wrapper">
+          
+  
+  
+  
+  
+      <a href="/55ab34ff81fccb4f1d806025/module/5945de532c4796014abd181a/courses">
+  
+  <div class="module_card">
+      <div class="card_banner">
+          
+              
+                  <img  src="./img-x/92da0a56be88ffcd0efefc474458d075eb688d82f8e45d00657b755108386.jpg" alt="" />
+              
+          
+      </div>
+      <div class="card_summary">
+          <div class="card_section">
+              <h4 class="card_title" title="Geometric Reasoning Part I ">
+                  Geometric Reasoning Part I
+              </h4>
+          </div>
+          <div class="card_section">
+              <p class="ellipsis">
+                  <span class="card_label">
+                      Subject: Mathematics
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                      No. of Units: 3
+                  </span class="card_label">
+              </p>
+              <p class="ellipsis">
+                  <span class="card_label">
+                     Grade : Grade 8, Grade 9
+                  </span class="card_label">
+              </p>
+          </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/foundation/foundation.dropdown.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+        </section>
